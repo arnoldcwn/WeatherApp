@@ -100,10 +100,10 @@ p:first-of-type {
   <script>
 // get the weather data from Observatory
 async function getObData() {
-  //return fetch("https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en", {mode: 'cors'})
-  return fetch("https://i7.cs.hku.hk/~atctam/c3322/WeatherData/getdata.php", {mode: 'cors'})
+  return fetch("https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en", {mode: 'cors'})
   .then(response => response.json());
 }
+
 
 // get the geolocation - latitude and longitude
 function getloc() {  
@@ -185,7 +185,7 @@ async function main() {
   tempBlk.setAttribute('class', 'winfo');
   let tempIcon = "<img src='thermometer-48.png'>";
   let tempData = Odata.temperature.data[1].value;
-  tempBlk.innerHTML = tempIcon + "<span id='temp'>" + tempData + "</span> <small>'C</small>";
+  tempBlk.innerHTML = tempIcon + "<span id='temp'>" + tempData + "</span> <small>°C</small>";
   output.append(tempBlk);
   
   //display the humidity info
@@ -224,7 +224,7 @@ async function main() {
     let elm = document.createElement('div');
     elm.setAttribute('class', 'block');
 		//add the cancel icon, location, and temperature
-    elm.innerHTML = "<img class='btn' src='cancel-24.ico'><p>" + loc.place + "</p> <p>" + loc.value + " 'C</p>";
+    elm.innerHTML = "<img class='btn' src='cancel-24.ico'><p>" + loc.place + "</p> <p>" + loc.value + " °C</p>";
     view.append(elm); //add the block to Webpage
   }
   
